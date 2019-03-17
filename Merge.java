@@ -20,30 +20,39 @@ public class Merge {
     merge(data, temp, temp2);
   }
   private static void merge(int[] data, int[] temp, int[] temp2) {
-    int idx = 0;
     int x = 0;
     int y = 0;
-    while (idx < data.length) {
-      if (x >= data.length) {
-        data[idx] = temp2[x];
-        idx++;
-        x++;
-      }
-      if (y >= data.length) {
+    for (int idx = 0; idx < data.length; idx++) {
+      if (x >= temp.length) {
         data[idx] = temp2[y];
-        idx++;
         y++;
+      }
+      else if (y >= temp2.length) {
+        data[idx] = temp[x];
+        x++;
       }
       else if (temp[x] <= temp2[y]) {
         data[idx] = temp[x];
-        idx++;
         x++;
       }
       else if (temp2[y] < temp[x]) {
         data[idx] = temp2[y];
-        idx++;
         y++;
       }
     }
+  }
+  public static void main(String[] args) {
+    int[] ary = {2, 10, 15, 23, 0,  5};
+    int[] ary2 = {999,999,999,4,1,0,3,2,999,999,999};
+    int[] ary3 = {17,61,67,47,93,12,20,4,44,78};
+    int[] ary4 = {1, 2, 3, 4, 5, 6, 7, 8};
+    mergesort(ary);
+    System.out.println(Arrays.toString(ary));
+    mergesort(ary2);
+    System.out.println(Arrays.toString(ary2));
+    mergesort(ary3);
+    System.out.println(Arrays.toString(ary3));
+    mergesort(ary4);
+    System.out.println(Arrays.toString(ary4));
   }
 }
