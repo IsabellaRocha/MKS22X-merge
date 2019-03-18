@@ -41,11 +41,21 @@ public class Merge {
       }
     }
   }
+  private static void mergesortOpt(int[] data) {
+    int[] temp = new int[data.length / 2];
+    int[] temp2 = new int[data.length - data.length / 2];
+    mergesortOpt(data, temp, 0, data.length - 1);
+    mergesortOpt(data, temp2, 0, data.length - 1);
+    merge(temp, temp2);
+  }
+  private static void mergesortOpt(int[] data, int[] temp, int start, int end) {
+
   public static void main(String[] args) {
     int[] ary = {2, 10, 15, 23, 0,  5};
     int[] ary2 = {999,999,999,4,1,0,3,2,999,999,999};
     int[] ary3 = {17,61,67,47,93,12,20,4,44,78};
     int[] ary4 = {1, 2, 3, 4, 5, 6, 7, 8};
+    int[] ary5 = {3, 7, 15, -6, 34536456, 90, 39, 15, 5};
     mergesort(ary);
     System.out.println(Arrays.toString(ary));
     mergesort(ary2);
@@ -54,5 +64,7 @@ public class Merge {
     System.out.println(Arrays.toString(ary3));
     mergesort(ary4);
     System.out.println(Arrays.toString(ary4));
+    mergesort(ary5);
+    System.out.println(Arrays.toString(ary5));
   }
 }
