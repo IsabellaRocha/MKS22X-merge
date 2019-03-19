@@ -7,7 +7,7 @@ public class Merge {
     if (start >= end) {
       return;
     }
-    if (end - start <= 50) {
+    if (end - start <= 15) {
       insertionsort(data, start, end);
     }
     int[] temp = new int[data.length / 2];
