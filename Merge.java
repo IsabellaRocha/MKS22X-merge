@@ -7,7 +7,7 @@ public class Merge {
     if (start >= end) {
       return;
     }
-    if (end - start < 10) {
+    if (end - start <= 50) {
       insertionsort(data, start, end);
     }
     int[] temp = new int[data.length / 2];
@@ -45,7 +45,7 @@ public class Merge {
     }
   }
   public static void insertionsort(int[] ary, int start, int end) {
-    for (int idx = start + 1; idx < end; idx++) {
+    for (int idx = start + 1; idx < end + 1; idx++) {
       int current = ary[idx]; // Storing value for later to move
       int curIdx = idx - 1;
       while (curIdx >= 0 && ary[curIdx] > current) {
