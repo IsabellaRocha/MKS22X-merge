@@ -4,10 +4,7 @@ public class Merge {
     mergesort(data, 0, data.length - 1);
   }
   private static void mergesort(int[] data, int start, int end) {
-    if (start >= end) {
-      return;
-    }
-    if (end - start <= 17) {
+    if (end - start <= 43) {
       insertionsort(data, start, end);
     }
     else {
@@ -91,5 +88,17 @@ public class Merge {
     }
     System.out.println();
   }
-}
+  int[] ary = {2, 10, 15, 23, 0,  5};
+   int[] ary2 = {999,999,999,4,1,0,3,2,999,999,999};
+   int[] ary3 = {17,61,67,47,93,12,20,4,44,78};
+   int[] ary4 = {1, 2, 3, 4, 5, 6, 7, 8};
+   mergesort(ary);
+   System.out.println(Arrays.toString(ary));
+   mergesort(ary2);
+   System.out.println(Arrays.toString(ary2));
+   mergesort(ary3);
+   System.out.println(Arrays.toString(ary3));
+   mergesort(ary4);
+   System.out.println(Arrays.toString(ary4));
+ }
 }
