@@ -7,20 +7,22 @@ public class Merge {
     if (start >= end) {
       return;
     }
-    if (end - start <= 15) {
+    if (end - start <= 17) {
       insertionsort(data, start, end);
     }
-    int[] temp = new int[data.length / 2];
-    int[] temp2 = new int[data.length - data.length / 2];
-    for (int idx = 0; idx < temp.length; idx++) {
-      temp[idx] = data[idx];
+    else {
+      int[] temp = new int[data.length / 2];
+      int[] temp2 = new int[data.length - data.length / 2];
+      for (int idx = 0; idx < temp.length; idx++) {
+        temp[idx] = data[idx];
+      }
+      for (int idx = 0; idx < temp2.length; idx++) {
+        temp2[idx] = data[idx + data.length / 2];
+      }
+      mergesort(temp, 0, temp.length - 1);
+      mergesort(temp2, 0, temp2.length - 1);
+      merge(data, temp, temp2);
     }
-    for (int idx = 0; idx < temp2.length; idx++) {
-      temp2[idx] = data[idx + data.length / 2];
-    }
-    mergesort(temp, 0, temp.length - 1);
-    mergesort(temp2, 0, temp2.length - 1);
-    merge(data, temp, temp2);
   }
   private static void merge(int[] data, int[] temp, int[] temp2) {
     int x = 0;
